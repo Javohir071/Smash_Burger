@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmashBurger — Toshkentning Eng Yaxshi Burgeri</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div class="overlay" id="overlay"></div>
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Smash<em>Burger</em><span class="logo-dot"></span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Haqimizda</a></li>
+      <li><a href="#menu">Menyu</a></li>
+      <li><a href="#why">Nima Uchun Biz</a></li>
+      <li><a href="#footer">Aloqa</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-pill" id="openCart">
+        <i class="fas fa-bag-shopping"></i> Savat
+        <span id="cartCount">0</span>
+      </button>
+      <div class="ham" onclick="document.getElementById('navLinks').classList.toggle('show')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring2"></div>
+  <div class="hero-left">
+    <div class="hero-tag"><i class="fas fa-fire-flame-curved"></i> Toshkent #1 — Fast Food</div>
+    <h1><span class="outline">Smash</span><span class="amber">Burger</span></h1>
+    <p class="hero-sub">Har tishlamda tuyasan — yangi go'sht, yangi non, haqiqiy ta'm. Bir bor tatib ko'rgan qaytib keladi.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-fill"><i class="fas fa-utensils"></i> Menyuni Ko'r</a>
+      <a href="#about" class="btn-ghost"><i class="fas fa-circle-info"></i> Biz Haqimizda</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">50K+</div><div class="l">Mijozlar</div></div>
+      <div class="hstat"><div class="n">20+</div><div class="l">Taomlar</div></div>
+      <div class="hstat"><div class="n">4.9★</div><div class="l">Reyting</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div style="position:relative;">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&auto=format&fit=crop" alt="SmashBurger" style="width:100%;border-radius:36px;object-fit:cover;height:580px;box-shadow:0 30px 80px rgba(255,107,0,0.2);">
+      <div class="badge-float">
+        <div class="big">30'</div>
+        <div class="sm">Yetkazib berish</div>
+      </div>
+      <div class="badge-float2"><i class="fas fa-leaf"></i> Yangi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-imgs rl">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop" alt="">
+      <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&auto=format&fit=crop" alt="">
+      <img src="https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=500&auto=format&fit=crop" alt="">
+    </div>
+    <div class="rr">
+      <div class="section-label">Biz Haqimizda</div>
+      <h2 class="section-title">Burger —<br>Bu San'at</h2>
+      <p>SmashBurger 2021-yilda bir oddiy g'oya bilan boshlandi: Toshkentda haqiqatan ham mazali burger tayyorlash. Bugun bizda 4 filial, 50 000+ mamnun mijoz va doim yangi taomlar bor.</p>
+      <p>Har kuni ertalab yangi keltirilgan go'sht, qo'lda ishlangan non va sirli souslar — mana bizning formulamiz.</p>
+      <div class="about-tags">
+        <span class="tag">🥩 Yangi Go'sht</span>
+        <span class="tag">🍞 Qo'lda Non</span>
+        <span class="tag">🚀 30' Yetkazib Berish</span>
+        <span class="tag">🧑‍🍳 Professional Oshpazlar</span>
+        <span class="tag">🔥 Har Kuni Yangi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-header reveal">
+    <div class="section-label" style="justify-content:center;">Nima Uchun Biz</div>
+    <h2 class="section-title dark">Farqimiz<br>Birinchi Tishlamda</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon"><i class="fas fa-motorcycle"></i></div>
+      <h3>Tezkor Yetkazib Berish</h3>
+      <p>Buyurtmangiz 30 daqiqa ichida eshigingizga yetib boradi. Kechikish bo'lsa — keyingi buyurtma bepul!</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.1s">
+      <div class="why-icon"><i class="fas fa-seedling"></i></div>
+      <h3>Yangi Ingredientlar</h3>
+      <p>Har kuni ertalab yetkazilgan mahsulotlar. Hech qanday muzlatilgan yoki konservantli narsa yo'q.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.2s">
+      <div class="why-icon"><i class="fas fa-headset"></i></div>
+      <h3>24/7 Xizmat</h3>
+      <p>Har qanday savolingizga darhol javob beramiz. Mijozimiz — bizning birinchi ustuvorligimiz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="menu-header reveal">
+    <div class="section-label" style="justify-content:center;">Bizning Menyu</div>
+    <h2 class="section-title dark">20 Ta Ajoyib<br>Taom Seni Kutmoqda</h2>
+    <div class="tabs">
+      <button class="tab active" data-cat="all">Hammasi</button>
+      <button class="tab" data-cat="burgers">🍔 Burgerlar</button>
+      <button class="tab" data-cat="chicken">🍗 Tovuq</button>
+      <button class="tab" data-cat="sides">🍟 Qo'shimcha</button>
+      <button class="tab" data-cat="drinks">🥤 Ichimliklar</button>
+    </div>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="quote-inner reveal">
+    <div class="quote-line"></div>
+    <blockquote>"Yaxshi burger — bu oddiy rohat emas, bu <em>his-tuyg'u.</em> Har tishlamda bir hikoya bor."</blockquote>
+    <cite>— SmashBurger Falsafasi, Toshkent 2021</cite>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gallery-title reveal"><p>Bizning <em>Ovqatlar</em></p></div>
+  <div class="g-wrap"><div class="g-track" id="gTrack"></div></div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="fbrand reveal">
+      <div class="flogo">Smash<em>Burger</em><span class="ld"></span></div>
+      <p>Toshkentning eng sevimli fast food restoran zanjiri. Har tishlamda yangi ta'm, har tashrif yangi xotira.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="fcol reveal">
+      <h4>Havolalar</h4>
+      <ul>
+        <li><a href="#home">Bosh Sahifa</a></li>
+        <li><a href="#about">Haqimizda</a></li>
+        <li><a href="#menu">Menyu</a></li>
+        <li><a href="#why">Nima Uchun Biz</a></li>
+      </ul>
+    </div>
+    <div class="fcol reveal">
+      <h4>Ish Vaqti</h4>
+      <ul class="finfo">
+        <li><i class="fas fa-clock"></i>Du–Ju: 10:00 – 23:00</li>
+        <li><i class="fas fa-clock"></i>Shanba: 10:00 – 24:00</li>
+        <li><i class="fas fa-clock"></i>Yakshanba: 11:00 – 22:00</li>
+      </ul>
+    </div>
+    <div class="fcol reveal">
+      <h4>Aloqa</h4>
+      <ul class="finfo">
+        <li><i class="fas fa-map-marker-alt"></i>Toshkent, Chilonzor, Bobur ko'chasi 15</li>
+        <li><i class="fas fa-phone"></i>+998 90 123 45 67</li>
+        <li><i class="fas fa-phone"></i>+998 71 234 56 78</li>
+        <li><i class="fab fa-telegram"></i>@SmashBurgerUZ</li>
+        <li><i class="fab fa-instagram"></i>@smashburger_uz</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span>SmashBurger</span>. Barcha huquqlar himoyalangan.</p>
+    <p>Muhabbat bilan tayyorlandi <span>❤️</span> Toshkentda</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     CART SIDEBAR
+═══════════════════════════════════════ -->
+<div class="sidebar" id="cartSidebar">
+
+  <!-- Head -->
+  <div class="sb-head">
+    <div class="sb-head-left">
+      <div class="sb-head-icon"><i class="fas fa-bag-shopping"></i></div>
+      <h2>Savatingiz <small id="sbItemLabel">0 ta buyurtma</small></h2>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="back-btn" id="backToMenu" title="Menyuga qaytish">
+        <i class="fas fa-arrow-left"></i>
+        <span>Menyu</span>
+      </button>
+      <button class="close-sb" id="closeCart" title="Yopish"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- Items list -->
+  <div class="sb-body" id="cartItems">
+    <div class="empty-cart">
+      <i class="fas fa-bag-shopping"></i>
+      <h3>Bo'sh</h3>
+      <p>Menyudan taom tanlang</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="sb-foot">
+
+    <!-- Summary -->
+    <div class="sb-summary" id="sbSummary" style="display:none;">
+      <div class="sb-summary-row">
+        <span>Mahsulotlar (<span id="sbQtyTotal">0</span> ta)</span>
+        <b><span id="sbSubtotal">0</span> UZS</b>
+      </div>
+      <div class="sb-summary-row">
+        <span>Yetkazib berish</span>
+        <b style="color:var(--sage);">Bepul 🎉</b>
+      </div>
+      <div class="sb-summary-row total">
+        <span>💰 JAMI</span>
+        <b><span id="totalSum">0</span> UZS</b>
+      </div>
+    </div>
+
+    <!-- Order form -->
+    <div class="oform" id="oformWrap">
+      <div class="oform-title"><i class="fas fa-clipboard-list"></i> Buyurtma Ma'lumotlari</div>
+      <form id="tgForm">
+        <div class="input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="custName" placeholder="Ismingiz" required>
+        </div>
+        <div class="input-wrap">
+          <i class="fas fa-phone"></i>
+          <input type="tel" id="custPhone" placeholder="+998 90 000 00 00" required>
+        </div>
+        <div class="input-wrap">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" id="custAddress" placeholder="Yetkazib berish manzili">
+        </div>
+        <button type="submit" class="order-btn" id="orderBtn">
+          <i class="fab fa-telegram"></i> BUYURTMA BERISH
+        </button>
+      </form>
+      <button class="clear-btn" id="clearCart"><i class="fas fa-trash"></i> Savatni tozalash</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
