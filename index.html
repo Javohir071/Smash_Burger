@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+  *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --g:#B8922A;--g2:#E8C96A;
   --bg:#080706;--bg2:#0F0E0B;--bg3:#161410;--card:#1A1710;
@@ -74,13 +74,13 @@ nav.s{background:var(--nav-bg);backdrop-filter:blur(28px) saturate(160%);-webkit
 
 /* HERO */
 .hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.hbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover;animation:hzoom 14s ease-out forwards;}
+.hbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover;animation:hzoom 14s ease-out forwards; opacity: 0.8;}
 @keyframes hzoom{from{transform:scale(1.1)}to{transform:scale(1)}}
 .hov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,7,6,.5) 0%,rgba(8,7,6,.4) 40%,rgba(8,7,6,.9) 80%,#080706 100%);}
 .hc{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:900px;}
 .htag{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--border);padding:8px 24px;border-radius:40px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:32px;animation:fu .8s ease both;}
 .htag::before,.htag::after{content:'✦';font-size:8px;}
-.hero h1{font-family:var(--ff);font-size:clamp(68px,12vw,130px);font-weight:700;line-height:.88;color:var(--t);animation:fu .9s .1s ease both;}
+.hero h1{font-family: 'Times New Roman', Times, serif;font-size:clamp(68px,12vw,130px);font-weight:700;line-height:.88;color:var(--t);animation:fu .9s .1s ease both;}
 .hero h1 em{color:var(--g);font-style:italic;}
 .hline{width:0;height:1px;background:var(--g);margin:28px auto;animation:fw .9s .3s ease forwards;}
 @keyframes fw{to{width:60px}}
@@ -285,6 +285,12 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
   nav{padding:0 14px;}
   .logo{font-size:20px;}
 }
+
+.a_class_insta{
+    text-decoration: none;
+    color: white;
+
+}
 </style>
 </head>
 <body>
@@ -348,7 +354,7 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
     <div class="htag" data-i="heroTag">Xonqa tumani №1 Restoran</div>
     <h1><em>Marvarid</em></h1>
     <div class="hline"></div>
-    <p class="hsub" data-i="heroSub">Premium Xorazm Taomlari · Sifatli Xizmat · 2019 Yildan</p>
+    <p class="hsub" data-i="heroSub">Premium Xorazm Taomlari · Sifatli Xizmat · 2020 Yildan</p>
     <div class="hbtns">
       <a href="#menu" class="btn-main"><i class="fas fa-utensils"></i> <span data-i="seeMenu">Menyu ko'rish</span></a>
       <a href="#contact" class="btn-ghost"><i class="fas fa-map-marker-alt"></i> <span data-i="ourAddress">Manzilimiz</span></a>
@@ -360,7 +366,7 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
 <!-- STATS -->
 <div class="stats">
   <div class="stat rv"><div class="sn">5K+</div><div class="sl" data-i="stat1">Mamnun Mijozlar</div></div>
-  <div class="stat rv"><div class="sn">70+</div><div class="sl" data-i="stat2">Maxsus Taomlar</div></div>
+  <div class="stat rv"><div class="sn">55+</div><div class="sl" data-i="stat2">Maxsus Taomlar</div></div>
   <div class="stat rv"><div class="sn">6</div><div class="sl" data-i="stat3">Yillik Tajriba</div></div>
   <div class="stat rv"><div class="sn">4.9</div><div class="sl" data-i="stat4">Mijoz Bahosi ⭐</div></div>
 </div>
@@ -379,7 +385,6 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
     <button class="cat" data-c="soup">🍲 <span data-i="soup">Shorva</span></button>
     <button class="cat" data-c="bread">🫓 <span data-i="bread">Non &amp; Somsa</span></button>
     <button class="cat" data-c="salad">🥗 <span data-i="salad">Salatlar</span></button>
-    <button class="cat" data-c="drink">🥤 <span data-i="drink">Ichimliklar</span></button>
   </div>
   <div class="mgrid" id="mgrid"></div>
 </section>
@@ -404,8 +409,7 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
     <div class="srv-card rv"><div class="srv-num">01</div><div class="srv-icon"><i class="fas fa-utensils"></i></div><h3 data-i="srv1t">Restoran Xizmati</h3><p data-i="srv1p">Shinam zalimizda oila va do'stlar bilan qulay muhitda premium darajadagi xizmat. Har bir stol uchun alohida e'tibor.</p></div>
     <div class="srv-card rv"><div class="srv-num">02</div><div class="srv-icon"><i class="fas fa-truck-fast"></i></div><h3 data-i="srv2t">Yetkazib Berish</h3><p data-i="srv2p">Xonqa tumani bo'ylab tezkor yetkazib berish xizmati. Issiq va yangi taomlarni eshigingizgacha olib boramiz.</p></div>
     <div class="srv-card rv"><div class="srv-num">03</div><div class="srv-icon"><i class="fas fa-champagne-glasses"></i></div><h3 data-i="srv3t">To'y & Ziyofatlar</h3><p data-i="srv3p">Nikoh to'yi, tug'ilgan kun, korporativ tadbirlar uchun maxsus dasturxon va katering xizmati taklif etamiz.</p></div>
-    <div class="srv-card rv"><div class="srv-num">04</div><div class="srv-icon"><i class="fas fa-bowl-food"></i></div><h3 data-i="srv4t">Catering Xizmati</h3><p data-i="srv4p">Har qanday tadbir uchun uyingizga yoki maydongizga tayyor dasturxon olib boramiz. Taomlar issiq holda yetkaziladi.</p></div>
-    <div class="srv-card rv"><div class="srv-num">05</div><div class="srv-icon"><i class="fas fa-fire-flame-curved"></i></div><h3 data-i="srv5t">Tandir & Grill</h3><p data-i="srv5p">Maxsus buyurtma asosida tandir non, somsa, shashlik va boshqa grill taomlarni ko'p miqdorda tayyorlab beramiz.</p></div>
+   <div class="srv-card rv"><div class="srv-num">05</div><div class="srv-icon"><i class="fas fa-fire-flame-curved"></i></div><h3 data-i="srv5t">Tandir & Grill</h3><p data-i="srv5p">Maxsus buyurtma asosida tandir non, somsa, shashlik va boshqa grill taomlarni ko'p miqdorda tayyorlab beramiz.</p></div>
     <div class="srv-card rv"><div class="srv-num">06</div><div class="srv-icon"><i class="fas fa-phone-volume"></i></div><h3 data-i="srv6t">Oldindan Buyurtma</h3><p data-i="srv6p">Telefon yoki Telegram orqali oldindan buyurtma bering. Kelguncha taomingiz tayyor bo'ladi — kutish yo'q.</p></div>
   </div>
 </section>
@@ -431,18 +435,19 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
     <div class="sec-tag" data-i="contact">Aloqa</div>
     <h2 class="sec-h" data-i="findUs">Bizni Toping</h2>
     <div class="citems">
-      <div class="ci"><div class="cicon"><i class="fas fa-map-marker-alt"></i></div><div><div class="ci-t" data-i="address">Manzil</div><div class="ci-v">Xonqa tumani, Mustaqillik ko'chasi 118<br>Xorazm viloyati, O'zbekiston</div></div></div>
-      <div class="ci"><div class="cicon"><i class="fas fa-phone"></i></div><div><div class="ci-t" data-i="phone">Telefon</div><div class="ci-v"><a href="tel:+998973620650" style="color:inherit;text-decoration:none;">+998 97 362 06 50</a></div></div></div>
-      <div class="ci"><div class="cicon"><i class="fas fa-clock"></i></div><div><div class="ci-t" data-i="workHours">Ish Vaqti</div><div class="ci-v" data-i="hours">Har kuni: 09:00 — 23:00</div></div></div>
-      <div class="ci"><div class="cicon"><i class="fab fa-telegram"></i></div><div><div class="ci-t">Telegram</div><div class="ci-v">@marvarid_xonqa</div></div></div>
+      <div class="ci"><div class="cicon"><i class="fas fa-map-marker-alt"></i></div><div><div class="ci-t" data-i="address">Manzil</div><div class="ci-v"> Xonqa tumani, Ehtirom mahallasi <br> Xorazm ko'chasi 16/1 </div></div></div>
+      <div class="ci"><div class="cicon"><i class="fas fa-phone"></i></div><div><div class="ci-t" data-i="phone">Telefon</div><div class="ci-v"><a href="tel:+998885115144" style="color:inherit;text-decoration:none;">+998 88 511 51 44</a></div></div></div>
+      <div class="ci"><div class="cicon"><i class="fas fa-clock"></i></div><div><div class="ci-t" data-i="workHours">Ish Vaqti</div><div class="ci-v" data-i="hours">Har kuni: 10:00 — 23:00</div></div></div>
+      <div class="ci"><div class="cicon"><i class="fab fa-telegram"></i></div><div><div class="ci-t">Instagram</div><div class="ci-v"><a href="https://www.instagram.com/marvarid_chitir_somsa/" class="a_class_insta">@marvarid_chitir_somsa
+</a></div></div></div>
     </div>
   </div>
   <div class="mapbox rv">
     <i class="fas fa-map-marked-alt"></i>
     <h3>Xonqa tumani</h3>
-    <p>Mustaqillik ko'chasi 118, Xorazm viloyati, O'zbekiston</p>
-    <a href="https://maps.google.com/?q=Xonqa+Xorazm+Uzbekistan" target="_blank" class="btn-main" style="margin-top:20px;font-size:13px;padding:13px 30px;">
-      <i class="fas fa-directions"></i> <span data-i="directions">Yo'nalish olish</span>
+    <p>Xorazm ko'chasi 16/1, Xorazm viloyati, O'zbekiston</p>
+    <a href="https://maps.google.com/FQJC+XQV, Xonqa, Xorazm Viloyati" target="_blank" class="btn-main" style="margin-top:20px;font-size:13px;padding:13px 30px;">
+      <i class="fas fa-directions"></i> <span data-i="directions">Joylashuv</span>
     </a>
   </div>
 </section>
@@ -452,16 +457,16 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
   <div class="ft">
     <div class="flogo">✦ <b>Marvarid</b></div>
     <div class="fsoc">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-telegram"></i></a>
-      <a href="tel:+998973620650"><i class="fas fa-phone"></i></a>
+      <a href="https://www.instagram.com/marvarid_chitir_somsa/"><i class="fab fa-instagram"></i></a>
+      <a href=""><i class="fab fa-telegram"></i></a>
+      <a href="tel:+998885115144"><i class="fas fa-phone"></i></a>
     </div>
   </div>
-  <div class="fb" data-i="copyright">© 2025 Marvarid Restoran. Barcha huquqlar himoyalangan · Xonqa tumani, Xorazm</div>
+  <div class="fb" data-i="copyright">© 2026 Javokh1r Javlonboyev. Barcha huquqlar himoyalangan · Xonqa tumani, Xorazm</div>
 </footer>
 
 <script>
-/* ── TRANSLATIONS ── */
+  /* ── TRANSLATIONS ── */
 const TR={
 uz:{
   navHome:"Asosiy",navMenu:"Menyu",navFish:"Baliq",navGallery:"Gallereya",navContact:"Aloqa",
@@ -616,14 +621,6 @@ const MENU=[
   {id:52, name:{uz:'Ti bon steyk',ru:'Стейк Ти-бон',en:'T-Bone Steak'}, desc:{uz:'Yuqori sifatli ti-bon steyk — premium go\'sht',ru:'Стейк Ти-бон высшего качества',en:'Premium quality T-bone steak'}, price:'220 000', cat:'grill', stars:5, badge:'👑 Steyk', img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80'},
   {id:53, name:{uz:'Bon file steyk',ru:'Стейк бон-филе',en:'Bone-in Fillet Steak'}, desc:{uz:'Suyak bilan file steyk — eng yuqori sifat',ru:'Стейк филе на кости — высшее качество',en:'Bone-in fillet steak — premium quality'}, price:'300 000', cat:'grill', stars:5, badge:'👑 Premium', img:'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80'},
   {id:54, name:{uz:'Tovuq shashlik',ru:'Шашлык из курицы',en:'Chicken Shashlik'}, desc:{uz:'Marinadlangan tovuq shashlik (1 shampurga)',ru:'Маринованный шашлык из курицы (за шампур)',en:'Marinated chicken shashlik (per skewer)'}, price:'20 000', cat:'grill', stars:5, badge:'🔥 Shashlik', img:'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80'},
-
-  // DRINKS
-  {id:55, name:{uz:'Limonad',ru:'Лимонад',en:'Lemonade'}, desc:{uz:'Uy tayyorlangan tabiiy limonad',ru:'Домашний натуральный лимонад',en:'Homemade natural lemonade'}, price:'15 000', cat:'drink', stars:5, badge:'🥤 Ichimlik', img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80'},
-  {id:56, name:{uz:'Kompot',ru:'Компот',en:'Kompot'}, desc:{uz:'Yangi mevalardan tayyorlangan kompot',ru:'Компот из свежих фруктов',en:'Fresh fruit kompot'}, price:'10 000', cat:'drink', stars:5, badge:'🥤 Ichimlik', img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80'},
-  {id:57, name:{uz:'Choy',ru:'Чай',en:'Tea'}, desc:{uz:'Xorazm uslubida tayyorlangan xushbo\'y choy',ru:'Ароматный чай по-хорезмски',en:'Aromatic tea Khorezm style'}, price:'8 000', cat:'drink', stars:5, badge:'☕ Choy', img:'https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=80'},
-  {id:58, name:{uz:'Qora choy',ru:'Чёрный чай',en:'Black Tea'}, desc:{uz:'Kuchli qora choy',ru:'Крепкий чёрный чай',en:'Strong black tea'}, price:'8 000', cat:'drink', stars:4, badge:'☕ Choy', img:'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80'},
-  {id:59, name:{uz:'Kofe',ru:'Кофе',en:'Coffee'}, desc:{uz:'Aromat kofe — har erta uchun',ru:'Ароматный кофе',en:'Aromatic coffee'}, price:'15 000', cat:'drink', stars:5, badge:'☕ Kofe', img:'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80'},
-  {id:60, name:{uz:'Meva sharbati',ru:'Фруктовый сок',en:'Fruit Juice'}, desc:{uz:'Yangi siqilgan meva sharbati',ru:'Свежевыжатый фруктовый сок',en:'Fresh squeezed fruit juice'}, price:'18 000', cat:'drink', stars:4, badge:'🥤 Sharbat', img:'https://images.unsplash.com/photo-1559839914-17aae19cec71?w=600&q=80'},
 ];
 
 /* ── FISH DATA ── */
@@ -743,4 +740,10 @@ applyLang();
 </script>
 </body>
 </html>
+
+
+
+
+
+
 
