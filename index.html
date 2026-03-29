@@ -12,22 +12,17 @@
   --g:#B8922A;--g2:#E8C96A;
   --bg:#080706;--bg2:#0F0E0B;--bg3:#161410;--card:#1A1710;
   --border:rgba(184,146,42,.18);--t:#F0EAD8;--t2:#8A806A;
-  --shadow:rgba(0,0,0,.6);--red:#DC2626;
+  --shadow:rgba(0,0,0,.6);
   --ff:'Playfair Display',serif;--fs:'DM Sans',sans-serif;
   --nav-bg:rgba(8,7,6,.97);
 }
-
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--t);font-family:var(--fs);overflow-x:hidden;cursor:none;transition:background .35s,color .35s;}
 ::selection{background:var(--g);color:#000;}
 ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--g);}
 
-/* ══ LOADING SCREEN ══ */
-#loader{
-  position:fixed;inset:0;z-index:99999;background:#080706;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
-  transition:opacity .6s ease, visibility .6s ease;
-}
+/* LOADING */
+#loader{position:fixed;inset:0;z-index:99999;background:#080706;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .6s ease,visibility .6s ease;}
 #loader.hide{opacity:0;visibility:hidden;}
 .loader-logo{font-family:var(--ff);font-size:52px;font-weight:700;letter-spacing:4px;color:#F0EAD8;opacity:0;animation:loaderFadeIn .8s .2s ease forwards;}
 .loader-logo b{color:var(--g);}
@@ -47,150 +42,41 @@ body{background:var(--bg);color:var(--t);font-family:var(--fs);overflow-x:hidden
 #dot{width:8px;height:8px;background:var(--g);border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
 #ring{width:36px;height:36px;border:1.5px solid var(--g);border-radius:50%;position:fixed;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s,height .25s;opacity:.5;}
 
-/* ══ NAV ══ */
-nav{
-  position:fixed;top:0;width:100%;z-index:9000;
-  padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  height:70px;
-  transition:all .4s cubic-bezier(.4,0,.2,1);
-}
-nav.s{
-  background:var(--nav-bg);
-  backdrop-filter:blur(28px) saturate(160%);
-  -webkit-backdrop-filter:blur(28px) saturate(160%);
-  height:60px;
-  border-bottom:1px solid var(--border);
-  box-shadow:0 4px 40px rgba(0,0,0,.3);
-}
-.logo{
-  font-family:var(--ff);font-size:26px;font-weight:700;
-  letter-spacing:3px;color:var(--t);text-decoration:none;
-  display:flex;align-items:center;gap:0;
-  position:relative;
-}
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:9000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;transition:all .4s cubic-bezier(.4,0,.2,1);}
+nav.s{background:var(--nav-bg);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);height:60px;border-bottom:1px solid var(--border);box-shadow:0 4px 40px rgba(0,0,0,.3);}
+.logo{font-family:var(--ff);font-size:26px;font-weight:700;letter-spacing:3px;color:var(--t);text-decoration:none;display:flex;align-items:center;gap:0;position:relative;}
 .logo b{color:var(--g);}
-.logo-gem{
-  width:28px;height:28px;
-  background:linear-gradient(135deg,var(--g),var(--g2));
-  border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  margin-right:10px;
-  font-size:14px;color:#000;
-  flex-shrink:0;
-  box-shadow:0 4px 14px rgba(184,146,42,.4);
-}
-
-.nav-pill{
-  display:flex;align-items:center;gap:4px;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  border-radius:40px;
-  padding:4px 6px;
-  backdrop-filter:blur(12px);
-}
+.logo-gem{width:28px;height:28px;background:linear-gradient(135deg,var(--g),var(--g2));border-radius:6px;display:flex;align-items:center;justify-content:center;margin-right:10px;font-size:14px;color:#000;flex-shrink:0;box-shadow:0 4px 14px rgba(184,146,42,.4);}
+.nav-pill{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:40px;padding:4px 6px;backdrop-filter:blur(12px);}
 .nlinks{display:flex;gap:0;list-style:none;align-items:center;}
-.nlinks a{
-  color:var(--t2);text-decoration:none;font-size:11px;
-  letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
-  padding:8px 16px;border-radius:30px;
-  transition:all .25s;
-  white-space:nowrap;
-}
+.nlinks a{color:var(--t2);text-decoration:none;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;padding:8px 16px;border-radius:30px;transition:all .25s;white-space:nowrap;}
 .nlinks a:hover{color:var(--t);background:rgba(255,255,255,.06);}
 .nlinks a.act{background:var(--g);color:#000;font-weight:700;}
-body.light .nlinks a:hover{background:rgba(0,0,0,.05);}
 .nav-r{display:flex;align-items:center;gap:7px;}
-
-.nav-icon-btn{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  color:var(--t2);width:38px;height:38px;border-radius:50%;cursor:none;
-  font-size:13px;display:flex;align-items:center;justify-content:center;
-  transition:all .25s;flex-shrink:0;position:relative;overflow:hidden;
-}
-.nav-icon-btn:hover{border-color:var(--g);color:var(--g);background:rgba(184,146,42,.08);}
-
 .lang-wrap{position:relative;}
-.lang-btn{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  color:var(--t2);padding:0 14px;height:38px;border-radius:40px;
-  cursor:none;font-family:var(--fs);font-size:11px;font-weight:600;
-  letter-spacing:1.5px;display:flex;align-items:center;gap:6px;
-  transition:all .25s;white-space:nowrap;
-}
+.lang-btn{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--t2);padding:0 14px;height:38px;border-radius:40px;cursor:none;font-family:var(--fs);font-size:11px;font-weight:600;letter-spacing:1.5px;display:flex;align-items:center;gap:6px;transition:all .25s;white-space:nowrap;}
 .lang-btn:hover{border-color:var(--g);color:var(--g);background:rgba(184,146,42,.08);}
-.lang-drop{
-  position:absolute;top:calc(100% + 10px);right:0;
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:16px;overflow:hidden;
-  opacity:0;pointer-events:none;transform:translateY(-8px) scale(.97);
-  transition:.25s cubic-bezier(.4,0,.2,1);
-  min-width:130px;box-shadow:0 24px 60px var(--shadow);z-index:100;
-}
+.lang-drop{position:absolute;top:calc(100% + 10px);right:0;background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-8px) scale(.97);transition:.25s cubic-bezier(.4,0,.2,1);min-width:130px;box-shadow:0 24px 60px var(--shadow);z-index:100;}
 .lang-drop.open{opacity:1;pointer-events:all;transform:none;}
-.lang-opt{
-  display:block;width:100%;padding:11px 18px;
-  background:transparent;border:none;color:var(--t2);
-  font-family:var(--fs);font-size:12px;font-weight:500;
-  letter-spacing:1px;cursor:none;text-align:left;transition:.2s;
-}
+.lang-opt{display:block;width:100%;padding:11px 18px;background:transparent;border:none;color:var(--t2);font-family:var(--fs);font-size:12px;font-weight:500;letter-spacing:1px;cursor:none;text-align:left;transition:.2s;}
 .lang-opt:hover{background:rgba(184,146,42,.1);color:var(--g);}
 .lang-opt.cur{color:var(--g);font-weight:700;}
-
-.cartbtn{
-  background:var(--g);color:#000;border:none;
-  padding:10px 18px;border-radius:40px;
-  font-family:var(--fs);font-size:12px;font-weight:700;
-  letter-spacing:.5px;cursor:none;
-  display:flex;align-items:center;gap:8px;
-  transition:all .25s;
-  box-shadow:0 4px 20px rgba(184,146,42,.3);
-}
-.cartbtn:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(184,146,42,.45);}
-.cbadge{
-  background:#000;color:var(--g);
-  width:18px;height:18px;border-radius:50%;
-  font-size:10px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px;}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--t);transition:.3s;}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
-.mobmenu{
-  display:none;position:fixed;inset:0;
-  background:rgba(8,7,6,.99);z-index:8500;
-  flex-direction:column;align-items:center;justify-content:center;gap:44px;
-}
+.mobmenu{display:none;position:fixed;inset:0;background:rgba(8,7,6,.99);z-index:8500;flex-direction:column;align-items:center;justify-content:center;gap:44px;}
 .mobmenu.show{display:flex;}
 .mobmenu a{font-family:var(--ff);font-size:42px;color:var(--t);text-decoration:none;transition:.3s;}
 .mobmenu a:hover{color:var(--g);}
-
-/* STICKY ORDER BUTTON */
-.sticky-order{position:fixed;bottom:30px;right:28px;z-index:7500;opacity:0;transform:translateY(20px) scale(.95);transition:.4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
-.sticky-order.vis{opacity:1;transform:none;pointer-events:all;}
-.sorder-wrap{position:relative;display:inline-flex;}
-.sorder-pulse{position:absolute;inset:-5px;border-radius:50px;border:2px solid var(--g);animation:spulse 2.2s ease-out infinite;pointer-events:none;}
-@keyframes spulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.22);opacity:0}}
-.sorder-btn{
-  background:var(--g);color:#000;border:none;
-  padding:14px 26px;border-radius:50px;
-  font-family:var(--fs);font-size:13px;font-weight:700;
-  cursor:none;display:flex;align-items:center;gap:10px;
-  box-shadow:0 8px 32px rgba(184,146,42,.45);
-  transition:.3s;letter-spacing:.5px;position:relative;
-}
-.sorder-btn:hover{background:var(--g2);transform:scale(1.04);}
-.sorder-cnt{background:#000;color:var(--g);width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;}
 
 /* HERO */
 .hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .hbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover;animation:hzoom 14s ease-out forwards;}
 @keyframes hzoom{from{transform:scale(1.1)}to{transform:scale(1)}}
-.hov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,7,6,.5) 0%,rgba(8,7,6,.4) 40%,rgba(8,7,6,.9) 80%,#080706 100%);transition:.4s;}
+.hov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,7,6,.5) 0%,rgba(8,7,6,.4) 40%,rgba(8,7,6,.9) 80%,#080706 100%);}
 .hc{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:900px;}
 .htag{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--border);padding:8px 24px;border-radius:40px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:32px;animation:fu .8s ease both;}
 .htag::before,.htag::after{content:'✦';font-size:8px;}
@@ -238,15 +124,10 @@ body.light .nlinks a:hover{background:rgba(0,0,0,.05);}
 .fc-img img{width:100%;height:100%;object-fit:cover;transition:.6s;display:block;}
 .fc:hover .fc-img img{transform:scale(1.1);}
 .fc-cat{position:absolute;top:14px;left:14px;background:rgba(8,7,6,.75);backdrop-filter:blur(12px);border:1px solid var(--border);color:var(--g);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 13px;border-radius:30px;}
-body.light .fc-cat{background:rgba(245,240,232,.9);}
-.fc-price{position:absolute;bottom:0;right:0;background:var(--g);color:#000;font-weight:700;font-size:14px;padding:9px 18px;border-radius:16px 0 0 0;}
 .fc-body{padding:22px;}
 .fc-body h3{font-family:var(--ff);font-size:22px;font-weight:600;margin-bottom:6px;}
-.fc-body p{color:var(--t2);font-size:13px;line-height:1.65;margin-bottom:18px;}
-.fc-foot{display:flex;justify-content:space-between;align-items:center;}
-.stars{color:var(--g);font-size:12px;letter-spacing:1px;}
-.addbtn{background:transparent;border:1px solid var(--border);color:var(--g);padding:9px 20px;border-radius:30px;font-family:var(--fs);font-size:12px;font-weight:600;cursor:none;transition:.3s;display:flex;align-items:center;gap:6px;}
-.addbtn:hover,.addbtn.done{background:var(--g);border-color:var(--g);color:#000;}
+.fc-body p{color:var(--t2);font-size:13px;line-height:1.65;}
+.stars{color:var(--g);font-size:12px;letter-spacing:1px;margin-top:14px;}
 
 /* SERVICES */
 .services{padding:100px 5%;background:var(--bg);}
@@ -296,135 +177,38 @@ footer{padding:56px 5% 28px;border-top:1px solid var(--border);}
 .fsoc a:hover{border-color:var(--g);color:var(--g);}
 .fb{text-align:center;color:var(--t2);font-size:12px;border-top:1px solid var(--border);padding-top:24px;}
 
-/* SIDEBAR */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:8000;opacity:0;pointer-events:none;transition:.35s;}
-.overlay.on{opacity:1;pointer-events:all;}
-.sidebar{position:fixed;right:-500px;top:0;width:460px;height:100%;background:var(--bg3);border-left:1px solid var(--border);z-index:9500;display:flex;flex-direction:column;transition:.5s cubic-bezier(.77,0,.175,1);}
-.sidebar.on{right:0;}
-.sbh{padding:28px 28px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.sbh h3{font-family:var(--ff);font-size:24px;}
-.xbtn{background:none;border:1px solid var(--border);color:var(--t2);width:38px;height:38px;border-radius:50%;cursor:none;font-size:15px;transition:.3s;display:flex;align-items:center;justify-content:center;}
-.xbtn:hover{border-color:var(--g);color:var(--g);}
-.sbl{flex:1;overflow-y:auto;padding:20px 28px;}
-.sbl::-webkit-scrollbar{width:2px;}
-.sbl::-webkit-scrollbar-thumb{background:var(--g);}
-.empty{text-align:center;padding:70px 0;color:var(--t2);}
-.empty i{font-size:44px;opacity:.2;display:block;margin-bottom:16px;}
-.empty p{font-size:14px;line-height:1.7;}
-.citem{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:14px 16px;margin-bottom:10px;}
-body.light .citem{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.06);}
-.ci-img2{width:52px;height:52px;border-radius:10px;object-fit:cover;flex-shrink:0;}
-.ci-info{flex:1;min-width:0;}
-.ci-info h4{font-size:14px;font-weight:500;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.ci-info span{color:var(--g);font-size:13px;font-weight:600;}
-.ci-qty{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.qbtn{background:rgba(255,255,255,.06);border:none;color:var(--t);width:26px;height:26px;border-radius:8px;cursor:none;font-size:12px;display:flex;align-items:center;justify-content:center;transition:.3s;}
-body.light .qbtn{background:rgba(0,0,0,.06);}
-.qbtn:hover{background:var(--g);color:#000;}
-.ci-qty span{font-size:14px;font-weight:600;min-width:20px;text-align:center;}
-.delbtn{background:none;border:none;color:#666;cursor:none;font-size:14px;padding:4px;transition:.3s;flex-shrink:0;}
-.delbtn:hover{color:var(--red);}
-.sbf{padding:20px 28px 28px;border-top:1px solid var(--border);}
-.tot{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
-.tot-l{font-size:12px;color:var(--t2);letter-spacing:1.5px;text-transform:uppercase;}
-.tot-v{font-family:var(--ff);font-size:28px;font-weight:700;color:var(--g);}
-.oform input{
-  width:100%;background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;padding:13px 16px;
-  color:var(--t);font-family:var(--fs);font-size:14px;
-  margin-bottom:9px;transition:.3s;outline:none;
-}
-body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);}
-.oform input:focus{border-color:var(--g);}
-.oform input::placeholder{color:var(--t2);}
-.obtn{width:100%;background:var(--g);border:none;border-radius:12px;padding:16px;font-family:var(--fs);font-size:14px;font-weight:700;color:#000;cursor:none;transition:.3s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;}
-.obtn:hover{background:var(--g2);}
-.obtn:disabled{opacity:.6;}
-
-/* TOAST */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg3);border:1px solid var(--border);color:var(--t);padding:14px 24px;border-radius:40px;font-size:13px;z-index:99999;opacity:0;transition:.4s;display:flex;align-items:center;gap:10px;white-space:nowrap;box-shadow:0 10px 40px var(--shadow);}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
-.ti{color:var(--g);}
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — TABLET (≤960px)
-═══════════════════════════════════════ */
+/* RESPONSIVE */
 @media(max-width:960px){
-  /* NAV */
   .nav-pill,.nlinks{display:none;}
   .hamburger{display:flex;}
-  .cartbtn .cart-label{display:none;}
   nav{padding:0 4%;}
-
-  /* HERO */
   .hero{min-height:100svh;}
   .hc{padding:0 24px;}
-  .htag{font-size:9px;letter-spacing:2px;padding:7px 18px;}
-  .hsub{font-size:11px;letter-spacing:2px;}
-  .hbtns{gap:10px;}
-  .btn-main,.btn-ghost{padding:14px 28px;font-size:12px;}
-
-  /* STATS */
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat{border-right:none;border-bottom:1px solid var(--border);}
   .stat:nth-child(odd){border-right:1px solid var(--border);}
   .stat:nth-last-child(-n+2){border-bottom:none;}
   .sn{font-size:44px;}
-
-  /* MENU */
   .menu-sec{padding:80px 4%;}
   .mgrid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
-  .cats{gap:8px;}
-  .cat{padding:8px 18px;font-size:10px;}
-
-  /* SERVICES */
   .services{padding:80px 4%;}
   .srv-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;}
-
-  /* GALLERY */
   .gallery{padding:80px 4%;}
-  .ggrid{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-    grid-auto-rows:200px;
-  }
+  .ggrid{grid-template-columns:1fr 1fr;grid-template-rows:auto;grid-auto-rows:200px;}
   .gi:nth-child(1){grid-row:auto;grid-column:1/3;height:260px;}
   .gi:nth-child(2){grid-column:auto;}
-
-  /* CONTACT */
   .contact{grid-template-columns:1fr;gap:50px;padding:80px 4%;}
   .mapbox{min-height:320px;padding:40px 30px;}
-
-  /* FOOTER */
   .ft{flex-direction:column;text-align:center;}
   .fsoc{justify-content:center;}
-
-  /* SIDEBAR */
-  .sidebar{width:100%;right:-100%;}
-
-  /* STICKY */
-  .sticky-order{bottom:88px;right:16px;}
-
-  /* LANG */
   .lang-label{display:none;}
 }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — MOBILE (≤640px)
-═══════════════════════════════════════ */
 @media(max-width:640px){
-  /* NAV */
   nav{padding:0 18px;height:62px;}
   nav.s{height:56px;}
   .logo{font-size:22px;letter-spacing:2px;}
   .logo-gem{width:24px;height:24px;font-size:11px;margin-right:7px;}
-  .cartbtn{padding:9px 13px;font-size:11px;gap:6px;}
-  .cartbtn span[data-i]{display:none;}
-  .cbadge{width:16px;height:16px;font-size:9px;}
   .lang-btn{padding:0 10px;height:34px;font-size:10px;gap:4px;}
-
-  /* HERO */
   .hero{min-height:100svh;}
   .hero h1{font-size:clamp(48px,13vw,80px);line-height:.9;}
   .htag{font-size:8px;letter-spacing:2px;padding:6px 14px;margin-bottom:22px;}
@@ -433,91 +217,45 @@ body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);
   .hbtns{flex-direction:column;align-items:center;gap:10px;margin-top:32px;}
   .btn-main,.btn-ghost{width:100%;max-width:280px;justify-content:center;padding:14px 24px;}
   .hline{margin:22px auto;}
-
-  /* STATS */
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat{padding:28px 14px;}
   .sn{font-size:36px;}
   .sl{font-size:9px;letter-spacing:1px;}
-
-  /* MENU */
   .menu-sec{padding:64px 18px;}
   .mhead{margin-bottom:40px;}
-  .mhead p{font-size:13px;}
   .cats{gap:6px;margin-bottom:36px;}
   .cat{padding:7px 14px;font-size:9px;letter-spacing:1px;}
   .mgrid{grid-template-columns:1fr;gap:18px;}
   .fc-body h3{font-size:19px;}
   .fc-img{height:200px;}
-
-  /* SERVICES */
   .services{padding:64px 18px;}
   .srv-grid{grid-template-columns:1fr;gap:16px;}
   .srv-card{padding:28px 22px;}
   .srv-card h3{font-size:19px;}
   .srv-num{font-size:38px;top:20px;right:20px;}
-
-  /* GALLERY */
   .gallery{padding:64px 18px;}
-  .ggrid{
-    grid-template-columns:1fr;
-    grid-template-rows:auto;
-    gap:10px;
-  }
+  .ggrid{grid-template-columns:1fr;grid-template-rows:auto;gap:10px;}
   .gi{height:200px !important;grid-column:auto !important;grid-row:auto !important;}
   .gi:nth-child(1),.gi:nth-child(2){height:220px !important;}
-
-  /* CONTACT */
   .contact{padding:64px 18px;gap:40px;}
   .ci{gap:14px;}
-  .cicon{width:44px;height:44px;font-size:14px;flex-shrink:0;}
+  .cicon{width:44px;height:44px;font-size:14px;}
   .ci-v{font-size:14px;}
   .mapbox{min-height:260px;padding:36px 24px;}
   .mapbox h3{font-size:22px;}
   .mapbox i{font-size:40px;}
-
-  /* FOOTER */
   footer{padding:40px 18px 24px;}
   .flogo{font-size:28px;}
   .fb{font-size:11px;}
-
-  /* SIDEBAR */
-  .sidebar{width:100%;right:-100%;}
-  .sbh{padding:20px 20px 16px;}
-  .sbh h3{font-size:20px;}
-  .sbl{padding:16px 18px;}
-  .sbf{padding:16px 18px 24px;}
-  .citem{gap:10px;padding:12px 12px;}
-  .ci-img2{width:44px;height:44px;}
-  .tot-v{font-size:24px;}
-  .oform input{padding:12px 14px;font-size:13px;}
-
-  /* STICKY */
-  .sticky-order{bottom:20px;right:14px;}
-  .sorder-btn{padding:12px 18px;font-size:12px;gap:7px;}
-  .sorder-label{display:none;}
-  .sorder-cnt{width:20px;height:20px;font-size:10px;}
-
-  /* MOBILE MENU */
   .mobmenu a{font-size:32px;}
   .mobmenu{gap:32px;}
-
-  /* TOAST — wrap on mobile */
-  .toast{white-space:normal;text-align:center;max-width:calc(100% - 32px);width:auto;font-size:12px;padding:12px 18px;border-radius:20px;}
-
-  /* SECTION HEADINGS */
   .sec-h{font-size:clamp(32px,8vw,48px);}
   .sec-tag{font-size:9px;letter-spacing:2px;}
 }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — SMALL PHONES (≤380px)
-═══════════════════════════════════════ */
 @media(max-width:380px){
   .hero h1{font-size:42px;}
   .stats{grid-template-columns:1fr 1fr;}
   .sn{font-size:30px;}
-  .sl{font-size:8px;}
   .mgrid{grid-template-columns:1fr;}
   .cat{padding:6px 12px;font-size:8px;}
   nav{padding:0 14px;}
@@ -527,7 +265,7 @@ body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
+<!-- LOADING -->
 <div id="loader">
   <div class="loader-logo"><b>Marvarid</b></div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
@@ -537,20 +275,6 @@ body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);
 
 <div id="dot"></div>
 <div id="ring"></div>
-<div class="overlay" id="ov"></div>
-<div class="toast" id="toast"><i class="fas fa-check-circle ti"></i><span id="tmsg"></span></div>
-
-<!-- STICKY ORDER BUTTON -->
-<div class="sticky-order" id="stickyOrder">
-  <div class="sorder-wrap">
-    <div class="sorder-pulse"></div>
-    <button class="sorder-btn" onclick="openSb()">
-      <i class="fas fa-bag-shopping"></i>
-      <span class="sorder-label" data-i="orderNow">Buyurtma berish</span>
-      <span class="sorder-cnt" id="sorderCnt">0</span>
-    </button>
-  </div>
-</div>
 
 <!-- MOBILE MENU -->
 <div class="mobmenu" id="mob">
@@ -586,10 +310,6 @@ body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);
         <button class="lang-opt" onclick="setLang('en')">🇬🇧 English</button>
       </div>
     </div>
-    <button class="cartbtn" id="ocart">
-      <i class="fas fa-bag-shopping"></i> <span data-i="cart">Savat</span>
-      <span class="cbadge" id="cbadge">0</span>
-    </button>
     <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -703,35 +423,11 @@ body.light .oform input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);
   <div class="fb" data-i="copyright">© 2025 Marvarid Restoran. Barcha huquqlar himoyalangan · Xonqa tumani, Xorazm</div>
 </footer>
 
-<!-- CART SIDEBAR -->
-<div class="sidebar" id="sb">
-  <div class="sbh">
-    <h3>🛍 <span data-i="yourCart">Savatchangiz</span></h3>
-    <button class="xbtn" id="csb"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="sbl" id="sitems"></div>
-  <div class="sbf">
-    <div class="tot">
-      <span class="tot-l" data-i="total">Jami To'lov</span>
-      <span class="tot-v" id="totsum">0 UZS</span>
-    </div>
-    <div class="oform">
-      <input type="text" id="uname" data-i-ph="yourName" placeholder="✦ Ismingiz (majburiy)">
-      <input type="tel" id="uphone" data-i-ph="yourPhone" placeholder="✦ Telefon raqamingiz (majburiy)">
-      <input type="text" id="uaddress" data-i-ph="yourAddress" placeholder="✦ Yashash manzilingiz (majburiy)">
-      <button class="obtn" id="obtn" onclick="sendTg()">
-        <i class="fas fa-paper-plane"></i> <span data-i="sendOrder">Buyurtma Yuborish</span>
-      </button>
-    </div>
-  </div>
-</div>
-
 <script>
-/* ══ TRANSLATIONS ══ */
-const TR = {
+/* ── TRANSLATIONS ── */
+const TR={
 uz:{
   navHome:"Asosiy",navMenu:"Menyu",navGallery:"Gallereya",navContact:"Aloqa",
-  cart:"Savat",
   heroTag:"Xonqa tumani №1 Restoran",
   heroSub:"Premium Xorazm Taomlari · Sifatli Xizmat · 2019 Yildan",
   seeMenu:"Menyu ko'rish",ourAddress:"Manzilimiz",scrollDown:"Pastga",
@@ -749,19 +445,10 @@ uz:{
   atmosphere:"Atmosfera",galleryTitle:"Restoran Gallereyasi",
   contact:"Aloqa",findUs:"Bizni Toping",address:"Manzil",phone:"Telefon",workHours:"Ish Vaqti",hours:"Har kuni: 09:00 — 23:00",directions:"Yo'nalish olish",
   copyright:"© 2025 Marvarid Restoran. Barcha huquqlar himoyalangan · Xonqa tumani, Xorazm",
-  yourCart:"Savatchangiz",total:"Jami To'lov",sendOrder:"Buyurtma Yuborish",
-  orderNow:"Buyurtma berish",addToCart:"Qo'shish",added:"Qo'shildi",
-  emptyCart:"Savat hali bo'sh",emptyCartSub:"Menyu bo'limidan taom qo'shing",
-  addedMsg:"savatga qo'shildi!",enterName:"Ism kiriting!",enterPhone:"Telefon raqam kiriting!",
-  enterAddress:"Manzil kiriting!",
-  emptyCartMsg:"Savat bosh!",orderSent:"Buyurtma yuborildi!",netErr:"Internet xatoligi!",
-  loading:"Yuklanmoqda...",yourName:"✦ Ismingiz (majburiy)",yourPhone:"✦ Telefon raqamingiz (majburiy)",
-  yourAddress:"✦ Yashash manzilingiz (majburiy)",
   noFood:"Bu kategoriyada taom yo'q",
 },
 ru:{
   navHome:"Главная",navMenu:"Меню",navGallery:"Галерея",navContact:"Контакты",
-  cart:"Корзина",
   heroTag:"Ресторан №1 в Хонке",
   heroSub:"Премиальная хорезмская кухня · Качественный сервис · С 2019 года",
   seeMenu:"Смотреть меню",ourAddress:"Наш адрес",scrollDown:"Вниз",
@@ -779,19 +466,10 @@ ru:{
   atmosphere:"Атмосфера",galleryTitle:"Галерея ресторана",
   contact:"Контакты",findUs:"Найдите нас",address:"Адрес",phone:"Телефон",workHours:"Часы работы",hours:"Ежедневно: 09:00 — 23:00",directions:"Маршрут",
   copyright:"© 2025 Marvarid Ресторан. Все права защищены · Хонка, Хорезм",
-  yourCart:"Ваша корзина",total:"Итого",sendOrder:"Отправить заказ",
-  orderNow:"Заказать",addToCart:"Добавить",added:"Добавлено",
-  emptyCart:"Корзина пуста",emptyCartSub:"Добавьте блюда из меню",
-  addedMsg:"добавлено в корзину!",enterName:"Введите имя!",enterPhone:"Введите номер телефона!",
-  enterAddress:"Введите адрес!",
-  emptyCartMsg:"Корзина пуста!",orderSent:"Заказ отправлен!",netErr:"Ошибка сети!",
-  loading:"Загрузка...",yourName:"✦ Ваше имя (обязательно)",yourPhone:"✦ Ваш номер телефона (обязательно)",
-  yourAddress:"✦ Ваш адрес проживания (обязательно)",
   noFood:"В этой категории нет блюд",
 },
 en:{
   navHome:"Home",navMenu:"Menu",navGallery:"Gallery",navContact:"Contact",
-  cart:"Cart",
   heroTag:"Khonka District's #1 Restaurant",
   heroSub:"Premium Khorezm Cuisine · Quality Service · Since 2019",
   seeMenu:"View Menu",ourAddress:"Our Location",scrollDown:"Scroll",
@@ -809,76 +487,52 @@ en:{
   atmosphere:"Atmosphere",galleryTitle:"Restaurant Gallery",
   contact:"Contact",findUs:"Find Us",address:"Address",phone:"Phone",workHours:"Working Hours",hours:"Daily: 09:00 — 23:00",directions:"Get Directions",
   copyright:"© 2025 Marvarid Restaurant. All rights reserved · Khonka, Khorezm",
-  yourCart:"Your Cart",total:"Total",sendOrder:"Place Order",
-  orderNow:"Order Now",addToCart:"Add",added:"Added",
-  emptyCart:"Your cart is empty",emptyCartSub:"Add dishes from the menu",
-  addedMsg:"added to cart!",enterName:"Please enter your name!",enterPhone:"Please enter your phone!",
-  enterAddress:"Please enter your address!",
-  emptyCartMsg:"Cart is empty!",orderSent:"Order sent successfully!",netErr:"Network error!",
-  loading:"Loading...",yourName:"✦ Your name (required)",yourPhone:"✦ Your phone number (required)",
-  yourAddress:"✦ Your home address (required)",
   noFood:"No dishes in this category",
 }};
 
-let lang = localStorage.getItem('ga_lang')||'uz';
-let T = TR[lang];
+let lang=localStorage.getItem('ga_lang')||'uz';
+let T=TR[lang];
 function tr(k){return T[k]||TR.uz[k]||k;}
 
 function applyLang(){
-  T = TR[lang];
-  document.querySelectorAll('[data-i]').forEach(el=>{
-    const v = tr(el.getAttribute('data-i'));
-    el.textContent = v;
-  });
-  document.querySelectorAll('[data-i-ph]').forEach(el=>{
-    el.placeholder = tr(el.getAttribute('data-i-ph'));
-  });
-  document.getElementById('langLabel').textContent = lang.toUpperCase();
-  document.querySelectorAll('.lang-opt').forEach((b,i)=>{
-    b.classList.toggle('cur', ['uz','ru','en'][i]===lang);
-  });
-  localStorage.setItem('ga_lang', lang);
+  T=TR[lang];
+  document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=tr(el.getAttribute('data-i'));});
+  document.getElementById('langLabel').textContent=lang.toUpperCase();
+  document.querySelectorAll('.lang-opt').forEach((b,i)=>{b.classList.toggle('cur',['uz','ru','en'][i]===lang);});
+  localStorage.setItem('ga_lang',lang);
   renderMenu();
-  updateCart();
 }
 
 function toggleLangDrop(){document.getElementById('langDrop').classList.toggle('open');}
 function setLang(l){lang=l;document.getElementById('langDrop').classList.remove('open');applyLang();}
 document.addEventListener('click',e=>{if(!e.target.closest('.lang-wrap'))document.getElementById('langDrop').classList.remove('open');});
 
-/* ── THEME — always dark ── */
-document.body.classList.remove('light');
+/* ── LOADING ── */
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hide');},2400);});
 
-/* ── LOADING SCREEN ── */
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    document.getElementById('loader').classList.add('hide');
-  }, 2400);
-});
-
-/* ── MENU DATA ── */
+/* ── MENU DATA — faqat rasm va badge, matn bo'sh ── */
 const MENU=[
-  {id:1,name:"Xonqa Shashlik",desc:"Eng sara qo'y go'shtidan, ko'mirda qovurilgan. Ta'mi unutilmas va hidi o'ziga jalb qiladi",price:35000,cat:"grill",stars:5,badge:"Top Taom",img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80"},
-  {id:2,name:"Xorazmcha Osh",desc:"An'anaviy usulda, katta kazanda pishirilgan milliy plovimiz. Ziravorli va to'yimli",price:45000,cat:"main",stars:5,badge:"Milliy Taom",img:"https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80"},
-  {id:3,name:"Tandir Somsa",desc:"Yangi pishirilgan, qo'y go'shti va piyozli. Tandirdan kelgan issiq somsa",price:8000,cat:"bread",stars:5,badge:"Mashhur",img:"https://images.unsplash.com/photo-1601050690597-df056fb0ce04?w=600&q=80"},
-  {id:4,name:"Mastava Shorva",desc:"Guruch, go'sht va yetti xil sabzavot asosida tayyorlangan issiq milliy sho'rva",price:25000,cat:"soup",stars:5,badge:"Issiq & Mazali",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80"},
-  {id:5,name:"Lula Kabob",desc:"Qo'l bilan tayyorlangan, grilda pishirilgan yupqa lula kabob — ajoyib ta'm",price:40000,cat:"grill",stars:5,badge:"Premium",img:"https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80"},
-  {id:6,name:"Lag'mon",desc:"Uy qo'lida yasalgan uzun qiyma lag'mon va boy qovurma bilan",price:30000,cat:"main",stars:4,badge:"Ko'p so'raladi",img:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80"},
-  {id:7,name:"Xorazm Noni",desc:"Katta tandir nonimiz — yangi, issiq, xushbo'y. Har kuni sabahdan yangi pishiriladi",price:6000,cat:"bread",stars:5,badge:"Yangi",img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80"},
-  {id:8,name:"Moshurda",desc:"Mosh donlari va guruch asosida tayyorlangan to'yimli xorazm milliy taomi",price:22000,cat:"soup",stars:4,badge:"Milliy",img:"https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?w=600&q=80"},
-  {id:9,name:"Qovurma Kabob",desc:"Yupqa tillingan qo'y go'shtidan qovurilgan — to'la ta'm va xushbo'y hid",price:38000,cat:"grill",stars:5,badge:"Chef's Choice",img:"https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80"},
-  {id:10,name:"Dimlama",desc:"Qo'y go'shti va 7 xil sabzavot bilan qozonda dimlangan to'y taomi",price:50000,cat:"main",stars:5,badge:"Premium",img:"https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80"},
-  {id:11,name:"Norin",desc:"Qo'lda yoğilgan ingichka makaron va qaynatilgan go'sht bilan tayyorlangan Xorazm milliy taomi",price:42000,cat:"main",stars:5,badge:"Milliy",img:"https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?w=600&q=80"},
-  {id:12,name:"Tikka Kabob",desc:"Limon va zavorat bilan marinlangan mol go'shti parchalaridan tayyorlangan mazali kabob",price:44000,cat:"grill",stars:5,badge:"Yangi",img:"https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80"},
-  {id:13,name:"Xorazm Chuchvara",desc:"Yupqa xamir ichiga go'sht solingan, qaymog'i bilan beriladi — aniq Xorazm usulida",price:28000,cat:"soup",stars:5,badge:"Mashhur",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80"},
-  {id:14,name:"Patir Non",desc:"Tandir ichida pishirilgan katta yumaloq patir non — Xorazm dasturxonining bezagi",price:7000,cat:"bread",stars:5,badge:"An'anaviy",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"},
-  {id:15,name:"Shurpa",desc:"Katta suyak va ko'k sabzavotlar bilan qaynatilgan to'yimli go'sht sho'rvasi — yurak isitadi",price:27000,cat:"soup",stars:4,badge:"Issiq",img:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&q=80"},
-  {id:16,name:"Kompot",desc:"Qovoq, olcha yoki o'rik asosida tayyorlangan sovuq uy komporti — tabiiy va yangilantiruvchi",price:8000,cat:"drink",stars:5,badge:"Tabiiy",img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80"},
-  {id:17,name:"Limonli Choy",desc:"Limon va asal qo'shilgan issiq ko'k choy — juda xushbo'y va issituvchi",price:6000,cat:"drink",stars:5,badge:"Mashhur",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80"},
-  {id:18,name:"Toza Sharbat",desc:"Mavsumiy mevalardan siqilgan toza tabiiy sharbat — hech qanday bo'yoqsiz",price:12000,cat:"drink",stars:5,badge:"Yangi",img:"https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=80"},
-  {id:19,name:"Qora Choy",desc:"Xorazm uslubida damlangan qora choy — kuchli va xushbo'y, piyolada beriladi",price:5000,cat:"drink",stars:4,badge:"An'anaviy",img:"https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80"},
-  {id:20,name:"Ayron",desc:"Yangi tayyorlangan sut asosida tabiiy ayron — ovqat bilan birga tavsiya etiladi",price:7000,cat:"drink",stars:5,badge:"Sog'lom",img:"https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80"},
-  {id:21,name:"Mineral Suv",desc:"Sovuq mineral suv — gaz bilan yoki gazsiz, har qanday taom bilan beriladi",price:4000,cat:"drink",stars:4,badge:"Sovuq",img:"https://images.unsplash.com/photo-1559839914-17aae19cec71?w=600&q=80"},
+  {id:1, name:'', desc:'', price:'', cat:'grill', stars:5, badge:'', img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80'},
+  {id:2, name:'', desc:'', price:'', cat:'main',  stars:5, badge:'', img:'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80'},
+  {id:3, name:'', desc:'', price:'', cat:'bread', stars:5, badge:'', img:'https://images.unsplash.com/photo-1601050690597-df056fb0ce04?w=600&q=80'},
+  {id:4, name:'', desc:'', price:'', cat:'soup',  stars:5, badge:'', img:'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80'},
+  {id:5, name:'', desc:'', price:'', cat:'grill', stars:5, badge:'', img:'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80'},
+  {id:6, name:'', desc:'', price:'', cat:'main',  stars:4, badge:'', img:'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80'},
+  {id:7, name:'', desc:'', price:'', cat:'bread', stars:5, badge:'', img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80'},
+  {id:8, name:'', desc:'', price:'', cat:'soup',  stars:4, badge:'', img:'https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?w=600&q=80'},
+  {id:9, name:'', desc:'', price:'', cat:'grill', stars:5, badge:'', img:'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80'},
+  {id:10,name:'', desc:'', price:'', cat:'main',  stars:5, badge:'', img:'https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80'},
+  {id:11,name:'', desc:'', price:'', cat:'main',  stars:5, badge:'', img:'https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?w=600&q=80'},
+  {id:12,name:'', desc:'', price:'', cat:'grill', stars:5, badge:'', img:'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80'},
+  {id:13,name:'', desc:'', price:'', cat:'soup',  stars:5, badge:'', img:'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80'},
+  {id:14,name:'', desc:'', price:'', cat:'bread', stars:5, badge:'', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'},
+  {id:15,name:'', desc:'', price:'', cat:'soup',  stars:4, badge:'', img:'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&q=80'},
+  {id:16,name:'', desc:'', price:'', cat:'drink', stars:5, badge:'', img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80'},
+  {id:17,name:'', desc:'', price:'', cat:'drink', stars:5, badge:'', img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80'},
+  {id:18,name:'', desc:'', price:'', cat:'drink', stars:5, badge:'', img:'https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=80'},
+  {id:19,name:'', desc:'', price:'', cat:'drink', stars:4, badge:'', img:'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80'},
+  {id:20,name:'', desc:'', price:'', cat:'drink', stars:5, badge:'', img:'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80'},
+  {id:21,name:'', desc:'', price:'', cat:'drink', stars:4, badge:'', img:'https://images.unsplash.com/photo-1559839914-17aae19cec71?w=600&q=80'},
 ];
 
 /* ── CURSOR ── */
@@ -887,14 +541,10 @@ let rx=0,ry=0,mx=innerWidth/2,my=innerHeight/2;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;DOT.style.left=mx+'px';DOT.style.top=my+'px';});
 (function raf(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;RING.style.left=rx+'px';RING.style.top=ry+'px';requestAnimationFrame(raf);})();
 function cur(sel){document.querySelectorAll(sel).forEach(el=>{el.addEventListener('mouseenter',()=>{DOT.style.width='14px';DOT.style.height='14px';RING.style.width='56px';RING.style.height='56px';RING.style.opacity='.2';});el.addEventListener('mouseleave',()=>{DOT.style.width='8px';DOT.style.height='8px';RING.style.width='36px';RING.style.height='36px';RING.style.opacity='.5';});});}
-cur('a,button,.fc,.cat,.addbtn,.qbtn,.delbtn,.nav-icon-btn,.lang-opt');
+cur('a,button,.fc,.cat,.lang-opt');
 
-/* ── NAV + STICKY ── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('s',scrollY>60);
-  const cnt=cart.reduce((s,i)=>s+i.qty,0);
-  document.getElementById('stickyOrder').classList.toggle('vis',scrollY>400&&cnt>0);
-});
+/* ── NAV ── */
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('s',scrollY>60);});
 
 /* ── MOBILE MENU ── */
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -905,116 +555,37 @@ function cmob(){ham.classList.remove('open');mob.classList.remove('show');}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* ── MENU ── */
-let curCat="all", cart=[];
+/* ── MENU RENDER ── */
+let curCat='all';
 function renderMenu(){
-  const grid=document.getElementById("mgrid");
-  const list=curCat==="all"?MENU:MENU.filter(f=>f.cat===curCat);
-  if(!list.length){grid.innerHTML=`<div style="text-align:center;padding:60px;color:var(--t2);grid-column:1/-1"><i class="fas fa-bowl-food" style="font-size:44px;opacity:.2;display:block;margin-bottom:16px;"></i><p>${tr('noFood')}</p></div>`;return;}
+  const grid=document.getElementById('mgrid');
+  const list=curCat==='all'?MENU:MENU.filter(f=>f.cat===curCat);
+  if(!list.length){
+    grid.innerHTML=`<div style="text-align:center;padding:60px;color:var(--t2);grid-column:1/-1"><i class="fas fa-bowl-food" style="font-size:44px;opacity:.2;display:block;margin-bottom:16px;"></i><p>${tr('noFood')}</p></div>`;
+    return;
+  }
   grid.innerHTML=list.map(f=>`
     <div class="fc rv">
       <div class="fc-img">
         <img src="${f.img}" alt="${f.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80'">
-        <div class="fc-cat">${f.badge}</div>
-        <div class="fc-price">${f.price.toLocaleString()} UZS</div>
+        ${f.badge?`<div class="fc-cat">${f.badge}</div>`:''}
+        ${f.price?`<div class="fc-price">${f.price}</div>`:''}
       </div>
       <div class="fc-body">
-        <h3>${f.name}</h3><p>${f.desc}</p>
-        <div class="fc-foot">
-          <div class="stars">${"★".repeat(f.stars)}${"☆".repeat(5-f.stars)}</div>
-          <button class="addbtn" onclick="addCart(${f.id},this)"><i class="fas fa-plus"></i> ${tr('addToCart')}</button>
-        </div>
+        <h3>${f.name}</h3>
+        <p>${f.desc}</p>
+        <div class="stars">${'★'.repeat(f.stars)}${'☆'.repeat(5-f.stars)}</div>
       </div>
-    </div>`).join("");
-  grid.querySelectorAll(".rv").forEach(el=>io.observe(el));
-  cur('.addbtn');
+    </div>`).join('');
+  grid.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  cur('.fc');
 }
-document.getElementById("cats").addEventListener("click",e=>{
-  const b=e.target.closest(".cat");if(!b)return;
-  document.querySelectorAll(".cat").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on");curCat=b.dataset.c;renderMenu();
+
+document.getElementById('cats').addEventListener('click',e=>{
+  const b=e.target.closest('.cat');if(!b)return;
+  document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');curCat=b.dataset.c;renderMenu();
 });
-
-/* ── CART ── */
-function addCart(id,btn){
-  const f=MENU.find(x=>x.id===id);if(!f)return;
-  const ex=cart.find(x=>x.id===id);
-  if(ex)ex.qty++;else cart.push({...f,qty:1});
-  updateCart();
-  btn.innerHTML=`<i class="fas fa-check"></i> ${tr('added')}`;btn.classList.add("done");
-  setTimeout(()=>{btn.innerHTML=`<i class="fas fa-plus"></i> ${tr('addToCart')}`;btn.classList.remove("done");},1600);
-  showToast(f.name+' '+tr('addedMsg'));
-}
-function updateCart(){
-  const cnt=cart.reduce((s,i)=>s+i.qty,0);
-  const sum=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  document.getElementById("cbadge").textContent=cnt;
-  document.getElementById("sorderCnt").textContent=cnt;
-  document.getElementById("totsum").textContent=sum.toLocaleString()+" UZS";
-  document.getElementById('stickyOrder').classList.toggle('vis',scrollY>400&&cnt>0);
-  const box=document.getElementById("sitems");
-  if(!cart.length){box.innerHTML=`<div class="empty"><i class="fas fa-bag-shopping"></i><p>${tr('emptyCart')}<br><small style="font-size:12px;opacity:.5;">${tr('emptyCartSub')}</small></p></div>`;return;}
-  box.innerHTML=cart.map((item,i)=>`
-    <div class="citem">
-      <img class="ci-img2" src="${item.img}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80'">
-      <div class="ci-info"><h4>${item.name}</h4><span>${(item.price*item.qty).toLocaleString()} UZS</span></div>
-      <div class="ci-qty">
-        <button class="qbtn" onclick="chgQty(${i},-1)"><i class="fas fa-minus"></i></button>
-        <span>${item.qty}</span>
-        <button class="qbtn" onclick="chgQty(${i},1)"><i class="fas fa-plus"></i></button>
-      </div>
-      <button class="delbtn" onclick="delItem(${i})"><i class="fas fa-trash-can"></i></button>
-    </div>`).join("");
-}
-updateCart();
-function chgQty(i,d){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);updateCart();}
-function delItem(i){cart.splice(i,1);updateCart();}
-
-/* ── SIDEBAR ── */
-const SB=document.getElementById("sb"),OV=document.getElementById("ov");
-document.getElementById("ocart").onclick=openSb;
-document.getElementById("csb").onclick=closeSb;
-OV.onclick=closeSb;
-function openSb(){SB.classList.add("on");OV.classList.add("on");}
-function closeSb(){SB.classList.remove("on");OV.classList.remove("on");}
-
-/* ── TOAST ── */
-function showToast(msg){const t=document.getElementById("toast");document.getElementById("tmsg").textContent=msg;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2800);}
-
-/* ── TELEGRAM ── */
-async function sendTg(){
-  const name=document.getElementById("uname").value.trim();
-  const phone=document.getElementById("uphone").value.trim();
-  const addr=document.getElementById("uaddress").value.trim();
-  if(!name){showToast(tr('enterName'));return;}
-  if(!phone){showToast(tr('enterPhone'));return;}
-  if(!addr){showToast(tr('enterAddress'));return;}
-  if(!cart.length){showToast(tr('emptyCartMsg'));return;}
-  const TOKEN="8775869229:AAGNHZN-lMLNYjdGB8sfgrSOggd0ENWR3Ms";
-  const CHAT_ID="8424842589";
-  const sum=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const now=new Date();
-  let msg="🍽 <b>YANGI BUYURTMA — Marvarid Restoran</b>\n━━━━━━━━━━━━━━━━━━━━━━\n";
-  msg+=`👤 <b>Mijoz:</b> ${name}\n📞 <b>Tel:</b> <a href="tel:${phone}">${phone}</a>\n📍 <b>Manzil:</b> ${addr}\n⏰ <b>Vaqt:</b> ${now.toLocaleString("uz-UZ")}\n`;
-  msg+="━━━━━━━━━━━━━━━━━━━━━━\n📋 <b>Buyurtma:</b>\n\n";
-  cart.forEach((item,i)=>{msg+=`${i+1}. <b>${item.name}</b>\n   ${item.qty} × ${item.price.toLocaleString()} = <b>${(item.price*item.qty).toLocaleString()} UZS</b>\n\n`;});
-  msg+=`━━━━━━━━━━━━━━━━━━━━━━\n💰 <b>JAMI: ${sum.toLocaleString()} UZS</b>`;
-  const btn=document.getElementById("obtn");
-  btn.disabled=true;btn.innerHTML=`<i class="fas fa-spinner fa-spin"></i> ${tr('loading')}`;
-  try{
-    const r=await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:CHAT_ID,text:msg,parse_mode:"HTML"})});
-    const d=await r.json();
-    if(d.ok){
-      showToast(tr('orderSent'));cart=[];updateCart();
-      document.getElementById("uname").value="";
-      document.getElementById("uphone").value="";
-      document.getElementById("uaddress").value="";
-      setTimeout(closeSb,400);
-    }
-    else alert("Xatolik: "+d.description);
-  }catch{alert(tr('netErr'));}
-  finally{btn.disabled=false;btn.innerHTML=`<i class="fas fa-paper-plane"></i> ${tr('sendOrder')}`;}
-}
 
 /* ── INIT ── */
 applyLang();
